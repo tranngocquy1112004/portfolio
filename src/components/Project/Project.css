@@ -1,0 +1,158 @@
+#projects {
+    overflow: hidden;
+    width: 100vw;
+    max-width: 65rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    padding: 1rem 0;
+}
+
+.projectTitle {
+    font-size: 2.5rem;
+    font-weight: 600;
+    padding-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.projectDesc {
+    font-weight: 400;
+    font-size: 1rem;
+    max-width: 51rem;
+    padding: 0 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.projectBars {
+    margin: 1rem 0;
+    width: 100vw;
+    max-width: 90%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.projectBar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0.5rem 0;
+    padding: 1.2rem 1rem;
+    border-radius: 0.5rem;
+    background: rgb(50, 50, 50);
+    transition: transform 0.3s ease, background 0.3s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.projectBar:hover {
+    transform: scale(1.02);
+    background: rgb(60, 60, 60);
+}
+
+.projectBarImg {
+    object-fit: cover;
+    object-position: center;
+    height: 8rem;
+    width: 12rem;
+    min-width: 8rem;
+    min-height: 8rem;
+    margin-right: 2rem;
+    border-radius: 0.5rem;
+    background-color: #222;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.10);
+    display: block;
+}
+
+.projectBarText {
+    font-size: 1rem;
+    font-weight: 300;
+    flex: 1;
+    min-width: 0;
+}
+
+.projectBarText > h2 {
+    color: #f59e0b;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.projectBarText > p {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+.projectBarText > a {
+    color: #38bdf8;
+    text-decoration: none;
+    word-break: break-all;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+.projectBarText > a:hover {
+    color: #0ea5e9;
+}
+
+@media screen and (max-width: 1024px) {
+    .projectBars {
+        max-width: 98%;
+    }
+    .projectBarImg {
+        height: 7rem;
+        width: 10rem;
+        min-width: 7rem;
+        min-height: 7rem;
+        margin-right: 1.2rem;
+    }
+    .projectBarText > h2 {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .projectBar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem 0.5rem;
+    }
+    .projectBarImg {
+        margin-right: 0;
+        margin-bottom: 1rem;
+        width: 100%;
+        height: 7rem;
+        min-width: unset;
+        min-height: unset;
+        max-width: 100%;
+    }
+    .projectBarText {
+        font-size: 0.95rem;
+    }
+    .projectBarText > h2 {
+        font-size: 1.1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .projectTitle {
+        font-size: 2rem;
+        padding-top: 1rem;
+    }
+    .projectDesc {
+        font-size: 0.95rem;
+        padding: 0 0.5rem;
+    }
+    .projectBarImg {
+        height: 5rem;
+        width: 100%;
+        max-width: 100%;
+    }
+    .projectBarText > h2 {
+        font-size: 1rem;
+    }
+    .projectBarText > p, .projectBarText > a {
+        font-size: 0.95rem;
+    }
+}
