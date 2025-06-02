@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/tranngocquy1112004.github.io/portfolio/static/css/main.d971c620.css",
+    "main.js": "/tranngocquy1112004.github.io/portfolio/static/js/main.d425adb2.js",
+    "static/js/453.acca0757.chunk.js": "/tranngocquy1112004.github.io/portfolio/static/js/453.acca0757.chunk.js",
+    "static/media/project2.png": "/tranngocquy1112004.github.io/portfolio/static/media/project2.9a4d0d9bf4228069bdf4.png",
+    "static/media/Tran-Ngoc-Quy-CV.pdf": "/tranngocquy1112004.github.io/portfolio/static/media/Tran-Ngoc-Quy-CV.767e0377209596fe452b.pdf",
+    "static/media/logo.png": "/tranngocquy1112004.github.io/portfolio/static/media/logo.ef0a51638952047fa8d4.png",
+    "static/media/bg.png": "/tranngocquy1112004.github.io/portfolio/static/media/bg.e0edaec0789bceb28d40.png",
+    "static/media/project1.png": "/tranngocquy1112004.github.io/portfolio/static/media/project1.b2d2c736b927d3603421.png",
+    "static/media/ui-design.png": "/tranngocquy1112004.github.io/portfolio/static/media/ui-design.c4acd455fc2040eddcc8.png",
+    "index.html": "/tranngocquy1112004.github.io/portfolio/index.html",
+    "main.d971c620.css.map": "/tranngocquy1112004.github.io/portfolio/static/css/main.d971c620.css.map",
+    "main.d425adb2.js.map": "/tranngocquy1112004.github.io/portfolio/static/js/main.d425adb2.js.map",
+    "453.acca0757.chunk.js.map": "/tranngocquy1112004.github.io/portfolio/static/js/453.acca0757.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d971c620.css",
+    "static/js/main.d425adb2.js"
+  ]
+}
