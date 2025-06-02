@@ -4,6 +4,7 @@
     max-width: 75rem;
     margin: 0 auto;
     overflow: hidden;
+    position: relative;
 }
 .bg {
     position: absolute;
@@ -12,54 +13,122 @@
     right: 0;
     object-fit: cover;
     height: 100vh;
+    width: auto;
+    max-width: 100%;
 }
 .introContent {
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     padding: 2rem;
     font-size: 3rem;
     font-weight: 700;
-    display:  flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    z-index: 1;
 }
 .hello {
     font-size: 1.75rem;
     font-weight: 100;
+    margin-bottom: 0.5rem;
 }
 .introName {
     color: yellow;
+}
+.introText {
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+    display: block;
 }
 .introPara {
     font-size: medium;
     font-weight: 300;
     color: rgb(143, 143, 143);
     letter-spacing: 1px;
+    max-width: 600px;
+    margin-bottom: 1.5rem;
 }
 .btn {
-    background-color: white;
-    margin: 1rem 0;
-    padding: 0.75rem 2rem; /* phóng to */
+    background-color: #ffce00;
+    margin: 2rem 0 0 0;
+    padding: 0.75rem 2.5rem;
     border: none;
     border-radius: 2rem;
     cursor: pointer;
-    font-size: 1.01rem;  
+    font-size: 1.1rem;
     font-weight: bold;
-
+    transition: all 0.3s ease;
+    display: block;
+    align-self: left;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
-@media screen and (max-width: 840px) {
-    .bg {
-        right: -10vw;
-    }
+.btn:hover {
+    transform: scale(1.07);
+    background-color: #ffd84d;
+}
+.btn a {
+    color: #222;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    display: block;
+}
+/* Large screens */
+@media screen and (min-width: 1200px) {
     .introContent {
-        font-size: 10vw;
+        font-size: 3rem;
     }
-    .hello {
-        font-size: 4.5vw;
+    .bg {
+        right: 0;
     }
 }
-@media screen and (max-width: 480px) {
+/* Medium screens */
+@media screen and (max-width: 1199px) {
+    .introContent {
+        font-size: 2.5rem;
+    }
+    .bg {
+        right: -5vw;
+    }
+}
+/* Tablets */
+@media screen and (max-width: 840px) {
+    .introContent {
+        font-size: 2rem;
+        padding: 1.5rem;
+        align-items: flex-start;
+    }
+    .btn {
+        font-size: 1rem;
+        padding: 0.7rem 2rem;
+    }
     .bg {
         right: -10vw;
+        opacity: 0.8;
+    }
+}
+/* Mobile devices */
+@media screen and (max-width: 480px) {
+    .introContent {
+        font-size: 1.2rem;
+        padding: 1rem;
+        align-items: flex-start;
+    }
+    .btn {
+        font-size: 0.95rem;
+        padding: 0.6rem 1.5rem;
+    }
+    .bg {
+        right: -20vw;
+        opacity: 0.6;
+    }
+}
+/* Small mobile devices */
+@media screen and (max-width: 360px) {
+    .btn {
+        font-size: 0.85rem;
+        padding: 0.5rem 1.1rem;
     }
 }

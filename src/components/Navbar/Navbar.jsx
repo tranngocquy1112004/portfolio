@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import './Navbar.css'
 import logo from '../../assets/logo.png'
 import { NavLink, useLocation } from "react-router-dom";
@@ -15,23 +15,39 @@ const scrollToSection = (section) => {
 
 const Navbar = () => {
   const location = useLocation();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     if (location.pathname === "/home") scrollToSection("intro");
     if (location.pathname === "/aboutme") scrollToSection("skills");
     if (location.pathname === "/myproject") scrollToSection("projects");
+    if (location.pathname === "/contact") scrollToSection("contact");
   }, [location.pathname]);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <nav className="navbar">
       <img className="logo" src={logo} alt="" />
-      <div className="desktopMenu">
-        <NavLink className="desktopMenuListItem" to="/home">Home</NavLink>
-        <NavLink className="desktopMenuListItem" to="/aboutme">About Me</NavLink>
-        <NavLink className="desktopMenuListItem" to="/myproject">My Project</NavLink>
-        {/* <Link className="desktopMenuListItem" to="/" spy={true} smooth={true}>Clients</Link>  */}
+      
+      <div className="mobileMenuBtn" onClick={toggleMenu}>
+        <div className={`hamburger ${isMenuOpen ? 'active' : ''}`}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
-      <button className="desktopMenuBtn">Contact Me</button>
+
+      <div className={`desktopMenu ${isMenuOpen ? 'active' : ''}`}>
+        <NavLink className="desktopMenuListItem" to="/home" onClick={() => setIsMenuOpen(false)}>Home</NavLink>
+        <NavLink className="desktopMenuListItem" to="/aboutme" onClick={() => setIsMenuOpen(false)}>About Me</NavLink>
+        <NavLink className="desktopMenuListItem" to="/myproject" onClick={() => setIsMenuOpen(false)}>My Project</NavLink>
+        <NavLink className="desktopMenuListItem" to="/contact" onClick={() => setIsMenuOpen(false)}>Contact Me</NavLink>
+
+      </div>
+      
     </nav>
   )
 }

@@ -18,6 +18,10 @@
     height: 3rem;
     cursor: pointer;
 }
+.desktopMenu {
+    display: flex;
+    align-items: center;
+}
 .desktopMenuListItem { 
     margin: 1rem;
     cursor: pointer;
@@ -43,4 +47,77 @@
     font-size: 1.1rem;  
     font-weight: bold;
 
+}
+.mobileMenuBtn {
+    display: none;
+    cursor: pointer;
+}
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+.hamburger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #f59e0b;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+}
+.hamburger.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+@media screen and (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+    }
+    .desktopMenu {
+        position: fixed;
+        top: 5rem;
+        right: -100%;
+        width: 100%;
+        height: calc(100vh - 5rem);
+        background: rgb(30, 30, 30);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: 0.3s ease-in-out;
+    }
+    .desktopMenu.active {
+        right: 0;
+    }
+    .desktopMenuListItem {
+        margin: 1.5rem 0;
+        font-size: 1.2rem;
+    }
+    .mobileMenuBtn {
+        display: block;
+    }
+    .hamburger {
+        display: flex;
+    }
+    .desktopMenuBtn {
+        display: none;
+    }
+}
+@media screen and (max-width: 480px) {
+    .navbar {
+        padding: 0.5rem;
+    }
+    .logo {
+        width: 2.2rem;
+        height: 2.5rem;
+    }
+    .desktopMenuListItem {
+        font-size: 1.1rem;
+    }
 }
