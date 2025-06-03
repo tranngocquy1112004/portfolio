@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.d971c620.css",
-    "main.js": "/portfolio/static/js/main.50a3768c.js",
+    "main.js": "/portfolio/static/js/main.d6279f4f.js",
     "static/js/453.acca0757.chunk.js": "/portfolio/static/js/453.acca0757.chunk.js",
     "static/media/project2.png": "/portfolio/static/media/project2.9a4d0d9bf4228069bdf4.png",
     "static/media/Tran-Ngoc-Quy-CV.pdf": "/portfolio/static/media/Tran-Ngoc-Quy-CV.767e0377209596fe452b.pdf",
@@ -11,11 +11,11 @@
     "static/media/ui-design.png": "/portfolio/static/media/ui-design.c4acd455fc2040eddcc8.png",
     "index.html": "/portfolio/index.html",
     "main.d971c620.css.map": "/portfolio/static/css/main.d971c620.css.map",
-    "main.50a3768c.js.map": "/portfolio/static/js/main.50a3768c.js.map",
+    "main.d6279f4f.js.map": "/portfolio/static/js/main.d6279f4f.js.map",
     "453.acca0757.chunk.js.map": "/portfolio/static/js/453.acca0757.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d971c620.css",
-    "static/js/main.50a3768c.js"
+    "static/js/main.d6279f4f.js"
   ]
 }
