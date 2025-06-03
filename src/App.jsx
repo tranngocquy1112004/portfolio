@@ -6,7 +6,7 @@ import Project from './components/Project/Project';
 import Contact from './components/Contact/Contact';
 function App() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
     <div className='App'>
       <Navbar />
       <Intro />
