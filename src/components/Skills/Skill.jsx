@@ -13,14 +13,12 @@ const Skills = () => {
                     <img src={UIDesign} alt="UIDesign" className="skillBarImg" />
                     <div className="skillBarText">
                         <h2>UI/UX design</h2>
-                        {/* <p>This is a demo text, you con write your own text in here</p> */}
                     </div>
                 </div>
                 <div className="skillBar">
                     <img src={WebDesign} alt="WebDesign" className="skillBarImg" />
                     <div className="skillBarText">
                         <h2>Web Design</h2>
-                        {/* <p>This is a demo text, you con write your own text in here</p> */}
                     </div>
                 </div>
             </div>
