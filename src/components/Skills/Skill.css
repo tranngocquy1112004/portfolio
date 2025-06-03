@@ -51,6 +51,10 @@
     transition: transform 0.2s;
     text-decoration: none; /* Remove default link style if it wraps an anchor */
     color: inherit; /* Inherit color from parent if it wraps an anchor */
+
+    opacity: 0; /* Start with invisible */
+    transform: translateY(50px); /* Start from below */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Add transition for initial state */
 }
 .skillBar:hover {
     transform: translateY(-4px) scale(1.02);
@@ -79,6 +83,23 @@
     margin: 0;
     font-size: 1rem;
     color: #cccccc;
+}
+
+/* Animation for fade-in effect on scroll */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px); /* Start from 50px below its final position */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* End at its original position */
+  }
+}
+
+/* Class to apply the animation - add this class with JS when element is in view */
+.skillBar.animate-on-scroll {
+  animation: fadeInUp 0.8s ease-out forwards;
 }
 
 @media screen and (max-width: 900px) {

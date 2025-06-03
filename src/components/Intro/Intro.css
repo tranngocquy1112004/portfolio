@@ -15,6 +15,8 @@
     height: 100vh;
     width: auto;
     max-width: 100%;
+    opacity: 0;
+    transform: translateX(100px);
 }
 .introContent {
     height: 100vh;
@@ -131,4 +133,43 @@
         font-size: 0.85rem;
         padding: 0.5rem 1.1rem;
     }
+}
+
+/* Animation for image slide in from right */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px); /* Start from 100px to the right */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0); /* End at original position */
+  }
+}
+
+/* Animation for text fade in from bottom */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px); /* Start from 50px below */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* End at original position */
+  }
+}
+
+/* Classes to apply animations with JS */
+.bg.animate-on-scroll {
+  animation: slideInRight 1s ease-out forwards;
+}
+
+.introContent.animate-on-scroll > * {
+  animation: fadeInUp 0.8s ease-out forwards;
+  /* Apply staggered delay with JS */
+}
+
+.introContent > * {
+    opacity: 0; /* Start invisible */
+    transform: translateY(50px); /* Start below */
 }

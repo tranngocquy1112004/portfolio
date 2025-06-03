@@ -4,6 +4,7 @@ import Intro from './components/Intro/Intro';
 import Skills from './components/Skills/Skill';
 import Project from './components/Project/Project';
 import Contact from './components/Contact/Contact';
+
 function App() {
   return (
     <Router basename={process.env.PUBLIC_URL}>

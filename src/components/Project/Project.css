@@ -28,7 +28,7 @@
 
 .projectBars {
     margin: 1rem 0;
-    width: 100vw;
+    width: 100%;
     max-width: 90%;
     text-align: left;
     display: flex;
@@ -46,6 +46,8 @@
     background: rgb(50, 50, 50);
     transition: transform 0.3s ease, background 0.3s;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    opacity: 0;
+    transform: translateY(50px);
 }
 
 .projectBar:hover {
@@ -56,7 +58,7 @@
 .projectBarImg {
     object-fit: cover;
     object-position: center;
-    height: 8rem;
+    height: auto;
     width: 12rem;
     min-width: 8rem;
     min-height: 8rem;
@@ -101,10 +103,10 @@
         max-width: 98%;
     }
     .projectBarImg {
-        height: 7rem;
+        height: auto;
         width: 10rem;
         min-width: 7rem;
-        min-height: 7rem;
+        min-height: unset;
         margin-right: 1.2rem;
     }
     .projectBarText > h2 {
@@ -122,7 +124,7 @@
         margin-right: 0;
         margin-bottom: 1rem;
         width: 100%;
-        height: 7rem;
+        height: auto;
         min-width: unset;
         min-height: unset;
         max-width: 100%;
@@ -145,7 +147,7 @@
         padding: 0 0.5rem;
     }
     .projectBarImg {
-        height: 5rem;
+        height: auto;
         width: 100%;
         max-width: 100%;
     }
@@ -155,4 +157,21 @@
     .projectBarText > p, .projectBarText > a {
         font-size: 0.95rem;
     }
+}
+
+/* Animation for fade-in effect on scroll */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px); /* Start from 50px below its final position */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* End at its original position */
+  }
+}
+
+/* Class to apply the animation - add this class with JS when element is in view */
+.projectBar.animate-on-scroll {
+  animation: fadeInUp 0.8s ease-out forwards;
 }

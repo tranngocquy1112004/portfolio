@@ -8,6 +8,10 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
+  /* background-color: #ddd; */
+  opacity: 0; /* Start with invisible */
+  transform: translateY(50px); /* Start from below */
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Add transition for initial state */
 }
 .contact-form input,
 .contact-form textarea {
@@ -16,6 +20,8 @@
   border: 1px solid #ddd;
   font-size: 1rem;
   resize: none;
+    background-color: #ddd;
+
 }
 .contact-form button {
   background: #ffce00;
@@ -34,4 +40,32 @@
   color: green;
   margin-top: 10px;
   font-size: 1rem;
+}
+
+/* Animation for fade-in effect on scroll */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px); /* Start from 50px below its final position */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* End at its original position */
+  }
+}
+
+/* Class to apply the animation - add this class with JS when element is in view */
+.contact-form.animate-on-scroll {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #contact {
+    padding: 20px 0;
+  }
+
+  .contact-form {
+    max-width: 90%; /* Allow form to be wider on smaller screens */
+  }
 }
