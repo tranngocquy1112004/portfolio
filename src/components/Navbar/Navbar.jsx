@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import './Navbar.css'
 import logo from '../../assets/logo.png'
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { scroller } from "react-scroll";
 
 const scrollToSection = (section) => {
@@ -15,14 +15,18 @@ const scrollToSection = (section) => {
 
 const Navbar = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    if (location.pathname === "/home" || location.pathname === "/") scrollToSection("intro");
+    if (location.pathname === "/myproject") {
+      navigate('/');
+    } else if (location.pathname === "/home" || location.pathname === "/") {
+      scrollToSection("intro");
+    }
     if (location.pathname === "/aboutme") scrollToSection("skills");
-    if (location.pathname === "/myproject") scrollToSection("projects");
     if (location.pathname === "/contact") scrollToSection("contact");
-  }, [location.pathname]);
+  }, [location.pathname, navigate]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
