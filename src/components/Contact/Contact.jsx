@@ -56,7 +56,7 @@ const Contact = () => {
   return (
     <section id="contact">
       <span className="contactTitle">Contact Me</span>
-      <span className="contactDesc">Please fill out the form below to discuss any work opportunities.</span>
+      {/* <span className="contactDesc">Please fill out the form below to discuss any work opportunities.</span> */}
       <form ref={formRef} onSubmit={sendEmail} className="contact-form">
         <input type="text" className="name" placeholder="Your Name" name="user_name" required />
         <input type="email" className="email" placeholder="Your Email" name="user_email" required />

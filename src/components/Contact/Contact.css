@@ -2,13 +2,19 @@
   padding: 40px 0;
   text-align: center;
 }
+.contactTitle {
+  font-size: 2.5rem;
+  font-weight: 600;
+  padding-top: 2rem;
+  margin-bottom: 2rem;
+}
 .contact-form {
   max-width: 400px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 15px;
-  /* background-color: #ddd; */
+  margin-top: 1rem;
   opacity: 0; /* Start with invisible */
   transform: translateY(50px); /* Start from below */
   transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Add transition for initial state */
