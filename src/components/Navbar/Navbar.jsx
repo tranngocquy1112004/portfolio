@@ -18,7 +18,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    if (location.pathname === "/home") scrollToSection("intro");
+    if (location.pathname === "/home" || location.pathname === "/") scrollToSection("intro");
     if (location.pathname === "/aboutme") scrollToSection("skills");
     if (location.pathname === "/myproject") scrollToSection("projects");
     if (location.pathname === "/contact") scrollToSection("contact");
