@@ -76,6 +76,46 @@
 .hamburger.active span:nth-child(3) {
     transform: translateY(-9px) rotate(-45deg);
 }
+.themeToggleBtn {
+  background: none;
+  border: none;
+  color: #f59e0b;
+  font-size: 1.5rem;
+  margin-left: 1rem;
+  cursor: pointer;
+  transition: color 0.3s;
+  outline: none;
+  display: flex;
+  align-items: center;
+}
+.themeToggleBtn:hover {
+  color: #fff;
+}
+
+body.light {
+  background: #fff;
+  color: #222;
+}
+body.dark {
+  background: #181818;
+  color: #f1f1f1;
+}
+
+.navbar, .desktopMenu, .mobileMenuBtn {
+  transition: background 0.3s, color 0.3s;
+}
+body.dark .navbar, body.dark .desktopMenu {
+  background: #222 !important;
+}
+body.light .navbar, body.light .desktopMenu {
+  background: #fff !important;
+}
+body.dark .desktopMenuListItem {
+  color: #f59e0b;
+}
+body.light .desktopMenuListItem {
+  color: #f59e0b;
+}
 @media screen and (max-width: 768px) {
     .navbar {
         padding: 1rem;

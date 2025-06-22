@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import './Navbar.css'
 import logo from '../../assets/logo.png'
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { scroller } from "react-scroll";
+import { FaMoon, FaSun } from 'react-icons/fa';
 
 const scrollToSection = (section) => {
   scroller.scrollTo(section, {
@@ -15,21 +16,27 @@ const scrollToSection = (section) => {
 
 const Navbar = () => {
   const location = useLocation();
-  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
 
   useEffect(() => {
-    if (location.pathname === "/myproject") {
-      navigate('/');
-    } else if (location.pathname === "/home" || location.pathname === "/") {
-      scrollToSection("intro");
-    }
+    document.body.className = theme;
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  useEffect(() => {
+    if (location.pathname === "/home" || location.pathname === "/") scrollToSection("intro");
     if (location.pathname === "/aboutme") scrollToSection("skills");
+    if (location.pathname === "/myproject") scrollToSection("projects");
     if (location.pathname === "/contact") scrollToSection("contact");
-  }, [location.pathname, navigate]);
+  }, [location.pathname]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
   };
 
   return (
@@ -49,7 +56,9 @@ const Navbar = () => {
         <NavLink className="desktopMenuListItem" to="/aboutme" onClick={() => setIsMenuOpen(false)}>About Me</NavLink>
         <NavLink className="desktopMenuListItem" to="/myproject" onClick={() => setIsMenuOpen(false)}>My Project</NavLink>
         <NavLink className="desktopMenuListItem" to="/contact" onClick={() => setIsMenuOpen(false)}>Contact Me</NavLink>
-
+        <button className="themeToggleBtn" onClick={toggleTheme} aria-label="Toggle theme">
+          {theme === 'light' ? <FaMoon /> : <FaSun />}
+        </button>
       </div>
       
     </nav>

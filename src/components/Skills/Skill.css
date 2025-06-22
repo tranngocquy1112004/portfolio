@@ -96,7 +96,12 @@
     transform: translateY(0); /* End at its original position */
   }
 }
-
+body.light .skillTilte {
+    color: #222;
+  }
+body.light .skillDesc {
+    color: #222;
+  }
 /* Class to apply the animation - add this class with JS when element is in view */
 .skillBar.animate-on-scroll {
   animation: fadeInUp 0.8s ease-out forwards;

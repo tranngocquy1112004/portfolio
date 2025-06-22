@@ -16,6 +16,8 @@
     font-weight: 600;
     padding-top: 2rem;
     margin-bottom: 1rem;
+    word-break: break-word;
+
 }
 
 .projectDesc {
@@ -24,6 +26,10 @@
     max-width: 51rem;
     padding: 0 1rem;
     margin-bottom: 1.5rem;
+    word-break: break-word;
+    white-space: pre-line;
+    line-height: 1.6;
+    color: #e0e0e0;
 }
 
 .projectBars {
@@ -174,4 +180,28 @@
 /* Class to apply the animation - add this class with JS when element is in view */
 .projectBar.animate-on-scroll {
   animation: fadeInUp 0.8s ease-out forwards;
+}
+
+body.light #projects {
+  background: transparent !important;
+  color: #222;
+}
+body.light .projectBar {
+  background: #232323;
+  color: #fff;
+}
+body.light .projectBarText > h2 {
+  color: #f59e0b;
+}
+body.light .projectBarText > a {
+  color: #40bfff;
+}
+body.light .projectBarText > a:hover {
+  color: #0099ff;
+}
+body.light .projectTitle {
+  color: #222;
+}
+body.light .projectDesc {
+  color: #222;
 }
