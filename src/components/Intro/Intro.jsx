@@ -1,15 +1,16 @@
-import React, { useEffect, useRef } from "react";
-import './Intro.css';
-import { Link } from 'react-scroll';
-import bg from '../../assets/bg.png'
-import cv from '../../assets/Tran-Ngoc-Quy-CV.pdf'
+import React, { useEffect, useRef } from "react"; 
+import './Intro.css'; 
+import bg from '../../assets/bg.png'; 
+import cv from '../../assets/Tran-Ngoc-Quy-CV.pdf'; 
 
 const Intro = () => {
-    const sectionRef = useRef(null);
-    const textRef = useRef(null);
-    const imageRef = useRef(null);
+    // Tạo ref cho từng phần tử cần observer
+    const sectionRef = useRef(null); // Ref cho section chính
+    const textRef = useRef(null);    // Ref cho khối text
+    const imageRef = useRef(null);   // Ref cho hình ảnh
 
     useEffect(() => {
+        // Observer cho section chính (có thể dùng cho hiệu ứng tổng thể)
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -20,26 +21,27 @@ const Intro = () => {
                     }
                 });
             },
-            {
-                threshold: 0.1
-            }
+            { threshold: 0.1 } // Kích hoạt khi 10% phần tử xuất hiện
         );
 
         if (sectionRef.current) {
             observer.observe(sectionRef.current);
         }
 
+        // Observer cho khối text, thêm hiệu ứng delay cho từng dòng
         const textObserver = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('animate-on-scroll');
+                        // Thêm delay cho từng phần tử con để hiệu ứng xuất hiện lần lượt
                         const textElements = entry.target.children;
                         Array.from(textElements).forEach((el, index) => {
                             el.style.animationDelay = `${index * 0.15}s`;
                         });
                     } else {
                         entry.target.classList.remove('animate-on-scroll');
+                        // Reset delay khi rời khỏi màn hình
                         const textElements = entry.target.children;
                         Array.from(textElements).forEach((el) => {
                             el.style.animationDelay = '0s';
@@ -47,11 +49,10 @@ const Intro = () => {
                     }
                 });
             },
-            {
-                threshold: 0.1
-            }
+            { threshold: 0.1 }
         );
 
+        // Observer cho hình ảnh
         const imageObserver = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -62,11 +63,10 @@ const Intro = () => {
                     }
                 });
             },
-            {
-                threshold: 0.1
-            }
+            { threshold: 0.1 }
         );
 
+        // Đăng ký observer cho từng phần tử
         if (textRef.current) {
             textObserver.observe(textRef.current);
         }
@@ -74,6 +74,7 @@ const Intro = () => {
             imageObserver.observe(imageRef.current);
         }
 
+        // Cleanup: hủy observer khi component unmount để tránh memory leak
         return () => {
             if (textRef.current) {
                 textObserver.unobserve(textRef.current);
@@ -82,7 +83,7 @@ const Intro = () => {
                 imageObserver.unobserve(imageRef.current);
             }
         };
-    }, []);
+    }, []); // Chỉ chạy một lần khi component mount
 
     return (
         <section id="intro" ref={sectionRef}>
@@ -91,11 +92,10 @@ const Intro = () => {
                 <span className="introText">I'm <span className="introName">Quy</span><br />Frontend Developer</span>
                 <p className="introPara">I am a skilled and passionate web designer with experience in creating <br/> visually appealing and user-friendly websites.</p>
                 <a href={cv} download="Tran-Ngoc-Quy-CV.pdf" className="btn">Download CV</a>
-
             </div>
             <img src={bg} alt="Profile" className="bg" ref={imageRef} />
         </section>
     )
 }
 
-export default Intro;
+export default Intro; 
