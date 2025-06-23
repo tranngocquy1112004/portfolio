@@ -3,6 +3,7 @@ import './Intro.css';
 import { Link } from 'react-scroll';
 import bg from '../../assets/bg.png'
 import cv from '../../assets/Tran-Ngoc-Quy-CV.pdf'
+
 const Intro = () => {
     const sectionRef = useRef(null);
     const textRef = useRef(null);
