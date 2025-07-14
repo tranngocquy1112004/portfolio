@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import emailjs from "@emailjs/browser"; 
-import "./Contact.css"; 
+import emailjs from "@emailjs/browser";
+import "./Contact.css";
 
 const Contact = () => {
   const formRef = useRef(null); // Ref cho form liên hệ
@@ -55,13 +55,16 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact"> 
+    <section id="contact">
+      {/* Tiêu đề liên hệ */}
       <span className="contactTitle">Contact Me</span>
+      {/* Form liên hệ, có hiệu ứng khi xuất hiện */}
       <form ref={formRef} onSubmit={sendEmail} className="contact-form">
         <input type="text" className="name" placeholder="Your Name" name="user_name" required />
         <input type="email" className="email" placeholder="Your Email" name="user_email" required />
         <textarea className='msg' name="message" rows="5" placeholder="Your Message" required />
         <button type="submit">Send</button>
+        {/* Hiển thị thông báo khi gửi thành công */}
         {done && <span className="success-msg">Thank you for your message!</span>}
       </form>
     </section>

@@ -1,8 +1,9 @@
-import React, { useEffect, useRef } from "react"; 
+import React, { useEffect, useRef } from "react";
 import './Project.css';
-import Project1 from '../../assets/project1.png'; 
-import Project2 from '../../assets/project2.png'; 
+import Project1 from '../../assets/project1.png';
+import Project2 from '../../assets/project2.png';
 
+// Component Project hiển thị các dự án với hiệu ứng khi xuất hiện trên màn hình
 const Project = () => {
     // Tạo một ref để lưu trữ các tham chiếu DOM của từng project bar
     const projectRefs = useRef([]);
@@ -21,7 +22,7 @@ const Project = () => {
                     }
                 });
             },
-            { threshold: 0.1 } // Kích hoạt khi 10% phần tử xuất hiện trên màn hình
+            { threshold: 0.1 } // Observer sẽ kích hoạt khi 10% phần tử xuất hiện trên màn hình
         );
 
         // Đăng ký từng project bar với observer
@@ -39,9 +40,13 @@ const Project = () => {
 
     return (
         <section id="projects">
+            {/* Tiêu đề dự án */}
             <span className="projectTitle">My Projects</span>
+            {/* Mô tả dự án */}
             <span className="projectDesc">Here are some of my recent works that showcase my skills and experience</span>
+            {/* Danh sách các project bar, mỗi project bar gồm hình ảnh và mô tả */}
             <div className="projectBars">
+                {/* Project 1 */}
                 <div className="projectBar" ref={el => projectRefs.current[0] = el}>
                     <img src={Project1} alt="Project1" className="projectBarImg" />
                     <div className="projectBarText">
@@ -52,6 +57,7 @@ const Project = () => {
                         <a href="https://tranngocquygame.netlify.app/">Link:https://tranngocquygame.netlify.app/</a>
                     </div>
                 </div>
+                {/* Project 2 */}
                 <div className="projectBar" ref={el => projectRefs.current[1] = el}>
                     <img src={Project2} alt="Project2" className="projectBarImg" />
                     <div className="projectBarText">
@@ -64,7 +70,7 @@ const Project = () => {
                 </div>
             </div>
         </section>
-    )
-}
+    );
+};
 
-export default Project
+export default Project;

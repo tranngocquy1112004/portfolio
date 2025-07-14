@@ -1,16 +1,16 @@
-import React, { useEffect, useRef } from "react"; 
-import './Intro.css'; 
-import bg from '../../assets/bg.png'; 
-import cv from '../../assets/Tran-Ngoc-Quy-CV.pdf'; 
+import React, { useEffect, useRef } from "react";
+import './Intro.css';
+import bg from '../../assets/bg.png';
+import cv from '../../assets/Tran-Ngoc-Quy-CV.pdf';
 
 const Intro = () => {
-    // Tạo ref cho từng phần tử cần observer
+    // Ref cho section chính, khối text và hình ảnh để dùng với IntersectionObserver
     const sectionRef = useRef(null); // Ref cho section chính
     const textRef = useRef(null);    // Ref cho khối text
     const imageRef = useRef(null);   // Ref cho hình ảnh
 
     useEffect(() => {
-        // Observer cho section chính (có thể dùng cho hiệu ứng tổng thể)
+        // Observer cho section chính (hiệu ứng tổng thể)
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -52,7 +52,7 @@ const Intro = () => {
             { threshold: 0.1 }
         );
 
-        // Observer cho hình ảnh
+        // Observer cho hình ảnh (hiệu ứng xuất hiện ảnh)
         const imageObserver = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -87,15 +87,18 @@ const Intro = () => {
 
     return (
         <section id="intro" ref={sectionRef}>
+            {/* Khối nội dung giới thiệu */}
             <div className="introContent" ref={textRef}>
                 <span className="hello">Hello,</span>
                 <span className="introText">I'm <span className="introName">Quy</span><br />Frontend Developer</span>
                 <p className="introPara">I am a skilled and passionate web designer with experience in creating <br/> visually appealing and user-friendly websites.</p>
+                {/* Nút tải CV */}
                 <a href={cv} download="Tran-Ngoc-Quy-CV.pdf" className="btn">Download CV</a>
             </div>
+            {/* Ảnh đại diện */}
             <img src={bg} alt="Profile" className="bg" ref={imageRef} />
         </section>
-    )
-}
+    );
+};
 
 export default Intro; 

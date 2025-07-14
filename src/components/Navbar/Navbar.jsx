@@ -1,25 +1,24 @@
-import React, { useEffect, useState } from "react"; // Import React và các hook
-import './Navbar.css'; // Import CSS cho Navbar
-import logo from '../../assets/logo.png'; // Import logo
-import { NavLink, useLocation } from "react-router-dom"; // NavLink để điều hướng, useLocation để lấy đường dẫn hiện tại
-import { scroller } from "react-scroll"; // scroller để cuộn đến section
-import { FaMoon, FaSun } from 'react-icons/fa'; // Icon cho chuyển theme
+import React, { useEffect, useState } from "react";
+import './Navbar.css';
+import logo from '../../assets/logo.png';
+import { NavLink, useLocation } from "react-router-dom";
+import { scroller } from "react-scroll";
+import { FaMoon, FaSun } from 'react-icons/fa';
 
-// Hàm cuộn đến section chỉ định trên trang
+// Hàm hỗ trợ cuộn mượt đến section chỉ định trên trang
 const scrollToSection = (section) => {
   scroller.scrollTo(section, {
     duration: 800, // Thời gian cuộn (ms)
     delay: 0, // Không delay
     smooth: "easeInOutQuart", // Hiệu ứng cuộn mượt
-    offset: -70, // Đẩy lên 70px (thường để tránh che bởi navbar)
+    offset: -70, // Đẩy lên 70px (tránh bị che bởi navbar)
   });
 };
 
 const Navbar = () => {
   const location = useLocation(); // Lấy thông tin đường dẫn hiện tại
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State kiểm soát menu mobile
-  // State theme, lấy từ localStorage nếu có, mặc định là 'light'
-  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
+  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light'); // State theme, lấy từ localStorage nếu có, mặc định là 'light'
 
   // Khi theme thay đổi, cập nhật class cho body và lưu vào localStorage
   useEffect(() => {
@@ -46,10 +45,11 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar"> {/* Navbar chính */}
-      <img className="logo" src={logo} alt="logo" /> {/* Logo */}
-      
-      {/* Nút menu cho mobile */}
+    <nav className="navbar">
+      {/* Logo website */}
+      <img className="logo" src={logo} alt="logo" />
+
+      {/* Nút mở menu mobile (hamburger) */}
       <div className="mobileMenuBtn" onClick={toggleMenu}>
         <div className={`hamburger ${isMenuOpen ? 'active' : ''}`}>
           <span></span>
@@ -58,20 +58,20 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Menu desktop và mobile (hiện khi isMenuOpen = true trên mobile) */}
+      {/* Menu chính, hiển thị trên desktop và mobile */}
       <div className={`desktopMenu ${isMenuOpen ? 'active' : ''}`}>
-        {/* Các link điều hướng, click sẽ đóng menu mobile */}
+        {/* Các mục menu, khi click sẽ đóng menu mobile */}
         <NavLink className="desktopMenuListItem" to="/home" onClick={() => setIsMenuOpen(false)}>Home</NavLink>
         <NavLink className="desktopMenuListItem" to="/aboutme" onClick={() => setIsMenuOpen(false)}>About Me</NavLink>
         <NavLink className="desktopMenuListItem" to="/myproject" onClick={() => setIsMenuOpen(false)}>My Project</NavLink>
         <NavLink className="desktopMenuListItem" to="/contact" onClick={() => setIsMenuOpen(false)}>Contact Me</NavLink>
-        {/* Nút chuyển theme (light/dark) */}
+        {/* Nút chuyển đổi theme (light/dark) */}
         <button className="themeToggleBtn" onClick={toggleTheme} aria-label="Toggle theme">
           {theme === 'light' ? <FaMoon /> : <FaSun />}
         </button>
       </div>
-      
     </nav>
-  )
-}
-export default Navbar // Export component Navbar
+  );
+};
+
+export default Navbar; 
